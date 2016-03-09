@@ -11,7 +11,15 @@
  * result in true.
  */
 function validateGameType(gameTypeString) {
-
+	 if(Number.isInteger(gameTypeString) || gameTypeString === null || gameTypeString instanceof Array) {
+		return false;
+	} else {
+		if (gameTypeString === '1' || gameTypeString === 'one') {
+			return 1;
+		} else {
+			return 2;
+		}
+	}
 }
 
 /*
@@ -20,15 +28,28 @@ function validateGameType(gameTypeString) {
  * false if the name is not valid.
  */
 function validateName(name) {
-
+	 if(Number.isInteger(name) || name === '' || name instanceof Array) {
+		return false;
+	} else {
+		return name;
+	}
 }
 
 /*
  * Randomly generates and returns a name for a computer player.
  */
 function generateComputerName() {
-
+	function randomString(length, chars) {
+		var result = '';
+		for (var i = 0; i < length; i++) {
+			result+= chars[Math.floor(Math.random() * chars.length)];
+		}
+		return result;
+	}
+	var computerName = randomString(8, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+	return computerName;
 }
+/* I admittedly looked up that trick online. I understand now how it works, but I wouldn't have figured that out on my own easily. */
 
 /*
  * Validate a yes/no answer. If the yesNoString is 'y' or 'yes' then the
