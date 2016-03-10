@@ -11,17 +11,19 @@
  * result in true.
  */
 function validateGameType(gameTypeString) {
-	 if(Number.isInteger(gameTypeString) || gameTypeString === null || gameTypeString instanceof Array) {
+	if(Number.isInteger(gameTypeString) || gameTypeString === null || gameTypeString instanceof Array) {
 		return false;
 	} else {
-		if (gameTypeString === '1' || gameTypeString === 'one') {
+		var gameType = gameTypeString.toLowerCase();
+		if (gameType === '1' || gameType === 'one') {
 			return 1;
-		} else {
+		} else if (gameType === '2' || gameType === 'two') {
 			return 2;
+		} else {
+			return false;
 		}
 	}
 }
-
 /*
  * Returns the players name if it is a valid name. Valid names must only contain
  * letters, hyphens or spaces and must contain at least one letter. Returns
@@ -59,7 +61,14 @@ function generateComputerName() {
  * insensitive, so it should accept both 'Y' and 'y' for example.
  */
 function validateYesNo(yesNoString) {
-
+	var yesNoAnswer = yesNoString.toLowerCase();
+	if (yesNoAnswer === 'y' || yesNoAnswer === 'yes') {
+		return true;
+	} else if (yesNoAnswer === 'n' || yesNoAnswer === 'no') {
+		return false;
+	} else {
+		return null;
+	}
 }
 
 /*
@@ -68,6 +77,12 @@ function validateYesNo(yesNoString) {
  * 'O' and vice versa.
  */
 function getNextPlayer(currentPlayer) {
+	var nextPlayer = currentPlayer.toUpperCase();
+	if (nextPlayer === 'O') {
+		return 'X';
+	} else if (nextPlayer === 'X') {
+		return 'O';
+	}
 
 }
 
@@ -90,7 +105,13 @@ function getNextPlayer(currentPlayer) {
  *   ~~~~~~~~~~~~~
  */
 function getGameBoardString(gameBoard) {
+	var gameBoardString = '';
+	for (var i = 0; i < gameBoard.length; i++) {
+		for (var j = 0; j < gameBoard.length; j++) {
 
+		}
+	}
+	return gameBoardString;
 }
 
 /*
