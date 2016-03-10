@@ -105,14 +105,19 @@ function getNextPlayer(currentPlayer) {
  *   ~~~~~~~~~~~~~
  */
 function getGameBoardString(gameBoard) {
-	var gameBoardString = '';
-	for (var i = 0; i < gameBoard.length; i++) {
+	var gameBoardString = gameBoard;
+	for (var i = 0; i < gameBoard.length; i++;) {
 		for (var j = 0; j < gameBoard.length; j++) {
+			if (gameBoardString[i][j] === '') {
 
+			}
 		}
 	}
 	return gameBoardString;
 }
+
+/*Arrays are my kryptonite. I need a really solid explanation of them because they trip me up every single time.*/
+/*I'll do my best to keep up. Spent ~2 hours looking through various Array tutorials.*/
 
 /*
  * Return the number of empty spaces that currently exist within the gameBoard
